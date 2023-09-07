@@ -1,13 +1,13 @@
 import { expect, test } from '@playwright/test';
 
 test('index page has expected container headings', async ({ page }) => {
-	await page.goto('/');
+	await page.goto('/examples/basic');
 	await expect(page.getByRole('heading', { name: 'Container A' })).toBeVisible();
 	await expect(page.getByRole('heading', { name: 'Container B' })).toBeVisible();
 });
 
 test('componente reparenting works', async ({ page }) => {
-	await page.goto('/');
+	await page.goto('/examples/basic');
 
 	// precheck: input is in container A
 	const oldContainerA = page.getByRole('main').locator('div').filter({ hasText: 'Container A' });

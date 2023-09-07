@@ -8,7 +8,14 @@
 -->
 
 <script lang="ts">
+	import { _components } from '$lib/Portal.svelte';
+	import { onMount } from 'svelte';
+
 	export let component: HTMLElement;
+
+	onMount(() => {
+		_components.set(component, { ..._components.get(component), limbo: component });
+	});
 </script>
 
 <!-- 
