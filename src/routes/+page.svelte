@@ -1,34 +1,31 @@
-<script>
-	import { onMount } from "svelte";
-	import Limbo from "$lib/Limbo.svelte";
-	import Portal, { teleport } from "$lib/Portal.svelte"
+<script lang="ts">
+	import { onMount } from 'svelte';
+	import { Portal, Limbo, teleport } from '$lib';
 
-	let component;
+	let component: HTMLElement;
 
 	function send(label: string) {
 		return () => {
-			teleport(label)
-		}
+			teleport(component, label);
+		};
 	}
 
-	onMount(() => {
-		teleport("a")
-	})
+	onMount((): void => send('a')());
 </script>
 
 <main>
-	<Limbo bind:component={component}>
-		<input placeholder="Enter unkept state">
+	<Limbo bind:component>
+		<input placeholder="Enter unkept state" />
 	</Limbo>
 	<div class="container">
 		<h1>Container A</h1>
 		<Portal key="a" {component} />
-		<button on:click={send("a")}>Move Component Here</button>
+		<button on:click={send('a')}>Move Component Here</button>
 	</div>
 	<div class="container">
 		<h1>Container B</h1>
 		<Portal key="b" {component} />
-		<button on:click={send("b")}>Move Component Here</button>
+		<button on:click={send('b')}>Move Component Here</button>
 	</div>
 </main>
 

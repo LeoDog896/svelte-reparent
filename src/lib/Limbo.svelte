@@ -8,10 +8,7 @@
 -->
 
 <script lang="ts">
-	import Box from "./Box.svelte";
-	import type { SvelteComponent } from "svelte";
-
-	export let component: SvelteComponent;
+	export let component: HTMLElement;
 </script>
 
 <!-- 
@@ -19,8 +16,8 @@
     but we use it as the initial holder before teleporting it.
     this allows us to manage when a Portal gets destroyed without 
     destroying the current node.
+
+        Wrap it in a box to guarantee that {component} is a DOM component,
+        since we cant guarantee that all svelte components only have 1 root node.
 -->
-<div hidden>
-    <!-- Wrap it in a box to guarantee that {component} is a Svelte component. -->
-	<Box bind:this={component}><slot /></Box>
-</div>
+<div style="display: contents;" bind:this={component}><slot /></div>
