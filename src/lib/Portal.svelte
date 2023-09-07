@@ -1,6 +1,5 @@
 <script context="module" lang="ts">
 	import { writable } from 'svelte/store';
-	import { tick } from 'svelte';
 
 	type Container = HTMLElement;
 
@@ -8,15 +7,13 @@
 	let components = new Map<Container, string>();
 
 	// dirty tracker - a Map isn't reactive, so we need to coerce Svelte to re-render
-	let dirty = writable(false);
+	let dirty = writable(Symbol());
 
 	export async function teleport(component: Container, key: string) {
 		components.set(component, key);
 
 		// trigger a re-render
-		dirty.set(true);
-		await tick();
-		dirty.set(false);
+		dirty.set(Symbol());
 	}
 </script>
 
@@ -28,7 +25,7 @@
 		- component may be nil before mount
 		- listen to dirty to force a re-render
 	*/
-	$: if (component && $dirty == true && components.get(component) == key) {
+	$: if (component && $dirty && components.get(component) == key) {
 		// appendChild forces a move, not a copy - we can safely use this as the DOM
 		// handles ownership of the node for us
 		container.appendChild(component);
@@ -37,4 +34,4 @@
 	let container: HTMLDivElement;
 </script>
 
-<div style="display: contents;" bind:this={container} hidden={components.get(component) != key} />
+<div style="display: contents;" bind:this={container} />

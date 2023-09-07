@@ -1,21 +1,51 @@
 {
 	"name": "svelte-portal",
+	"description": "reparent nodes with ease in svelte",
 	"version": "0.0.1",
-	"private": true,
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
 		"test": "playwright test",
+		"prepublishOnly": "npm run package",
+		"package": "svelte-kit sync && svelte-package && publint",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write ."
 	},
+	"keywords": [
+		"svelte"
+	],
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js"
+		}
+	},
+	"files": [
+		"dist",
+		"!dist/**/*.test.*",
+		"!dist/**/*.spec.*"
+	],
+	"author": {
+		"name": "Tristan F.",
+		"email": "leodog896@gmail.com"
+	},
+	"repository": "github:LeoDog896/svelte-portal",
+	"homepage": "https://leodog896.github.io/svelte-portal",
+	"bugs": {
+		"url": "https://github.com/LeoDog896/svelte-portal/issues",
+		"email": "leodog896@gmail.com"
+	},
+	"svelte": "./dist/index.js",
+	"types": "./dist/index.d.ts",
 	"devDependencies": {
+		"@fontsource-variable/jetbrains-mono": "^5.0.9",
 		"@playwright/test": "^1.28.1",
 		"@sveltejs/adapter-static": "^2.0.3",
 		"@sveltejs/kit": "^1.20.4",
+		"@sveltejs/package": "^2.2.0",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
 		"eslint": "^8.28.0",
@@ -23,11 +53,16 @@
 		"eslint-plugin-svelte": "^2.30.0",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.10.1",
-		"svelte": "^4.0.5",
+		"publint": "^0.1.16",
+		"svelte": "^4.1.1",
 		"svelte-check": "^3.4.3",
+		"svelte-icons": "^2.1.0",
 		"tslib": "^2.4.1",
 		"typescript": "^5.0.0",
 		"vite": "^4.4.2"
+	},
+	"peerDependencies": {
+		"svelte": ">=4.0.0"
 	},
 	"type": "module"
 }

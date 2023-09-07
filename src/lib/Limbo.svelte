@@ -3,7 +3,7 @@
 	and serves as a hidden space to keep track of nodes.
 
 	**WARNING**: Since Limbo owns the lifecycle of the current element,
-    the moment that Limbo gets destroyed, it will kill its child element
+    the moment that Limbo gets destroyed, it will destroy its child element
     that it *thinks* it owns.
 -->
 
@@ -20,4 +20,4 @@
         Wrap it in a box to guarantee that {component} is a DOM component,
         since we cant guarantee that all svelte components only have 1 root node.
 -->
-<div style="display: contents;" bind:this={component}><slot /></div>
+<div style="display: contents;" bind:this={component} hidden><slot /></div>
