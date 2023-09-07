@@ -1,5 +1,5 @@
 {
-	"name": "svelte-portal",
+	"name": "svelte-reparent",
 	"description": "reparent nodes with ease in svelte",
 	"version": "0.0.1",
 	"scripts": {
@@ -32,10 +32,10 @@
 		"name": "Tristan F.",
 		"email": "leodog896@gmail.com"
 	},
-	"repository": "github:LeoDog896/svelte-portal",
-	"homepage": "https://leodog896.github.io/svelte-portal",
+	"repository": "github:LeoDog896/svelte-reparent",
+	"homepage": "https://leodog896.github.io/svelte-reparent",
 	"bugs": {
-		"url": "https://github.com/LeoDog896/svelte-portal/issues",
+		"url": "https://github.com/LeoDog896/svelte-reparent/issues",
 		"email": "leodog896@gmail.com"
 	},
 	"svelte": "./dist/index.js",

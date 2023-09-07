@@ -1,4 +1,4 @@
-# [svelte-portal](https://leodog896.github.io/svelte-portal)
+# [svelte-reparent](https://leodog896.github.io/svelte-reparent)
 
 Reparent elements with ease. Svelte non-internal using alternative to [react-reparenting](https://github.com/paol-imi/react-reparenting).
 
