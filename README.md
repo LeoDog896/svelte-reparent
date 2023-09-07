@@ -60,6 +60,6 @@ registry, which maps component instances to what portal ID they belong in. When 
 is destroyed, it is moved back to `Limbo` and removed from the registry.
 
 In order to move the DOM around, this library extensively uses `<div style="display: contents">`.
-The usage of this allows for `svelte-portal` to _ensure_ that svelte components
+The usage of this allows for `svelte-reparent` to _ensure_ that svelte components
 have a single root element, which is moved around (in the case of `Limbo`), or
 appended to (in the case of `Portal`).
