@@ -16,7 +16,7 @@ test('componente reparenting works', async ({ page }) => {
 	// add unkept text "State" to the input
 	await page.getByPlaceholder('Enter unkept state').click();
 	await page.getByPlaceholder('Enter unkept state').fill('State');
-	
+
 	// move component from container A to container B
 	const containerB = page.getByRole('main').locator('div').filter({ hasText: 'Container B' });
 	await containerB.getByRole('button').click();
@@ -34,12 +34,41 @@ test('componente reparenting works', async ({ page }) => {
 	await expect(containerA.locator('input').first()).toHaveValue('State');
 
 	// double click to check resillience
-	await page.getByRole('main').locator('div').filter({ hasText: 'Container B' }).getByRole('button').click();
-	await page.getByRole('main').locator('div').filter({ hasText: 'Container B' }).getByRole('button').click();
-	await page.getByRole('main').locator('div').filter({ hasText: 'Container A' }).getByRole('button').click();
+	await page
+		.getByRole('main')
+		.locator('div')
+		.filter({ hasText: 'Container B' })
+		.getByRole('button')
+		.click();
+	await page
+		.getByRole('main')
+		.locator('div')
+		.filter({ hasText: 'Container B' })
+		.getByRole('button')
+		.click();
+	await page
+		.getByRole('main')
+		.locator('div')
+		.filter({ hasText: 'Container A' })
+		.getByRole('button')
+		.click();
 
 	// ensure that input is in container A
-	await expect(page.getByRole('main').locator('div').filter({ hasText: 'Container A' }).locator('input').first()).toBeVisible();
+	await expect(
+		page
+			.getByRole('main')
+			.locator('div')
+			.filter({ hasText: 'Container A' })
+			.locator('input')
+			.first()
+	).toBeVisible();
 	// ensure that input has unkept text "State"
-	await expect(page.getByRole('main').locator('div').filter({ hasText: 'Container A' }).locator('input').first()).toHaveValue('State');
+	await expect(
+		page
+			.getByRole('main')
+			.locator('div')
+			.filter({ hasText: 'Container A' })
+			.locator('input')
+			.first()
+	).toHaveValue('State');
 });
