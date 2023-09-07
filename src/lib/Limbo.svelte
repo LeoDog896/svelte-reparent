@@ -14,10 +14,10 @@
 <!-- 
     We don't want to render this component, 
     but we use it as the initial holder before teleporting it.
-    this allows us to manage when a Portal gets destroyed without 
+    This allows us to manage when a Portal gets destroyed without 
     destroying the current node.
 
-        Wrap it in a box to guarantee that {component} is a DOM component,
-        since we cant guarantee that all svelte components only have 1 root node.
+    We also wrap it to guarantee that `component` is a DOM component,
+    since we can't guarantee that all svelte components only have 1 root node.
 -->
 <div style="display: contents;" bind:this={component} hidden><slot /></div>
