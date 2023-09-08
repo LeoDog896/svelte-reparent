@@ -12,7 +12,7 @@
 	import { onMount } from 'svelte';
 
 	export let component: HTMLElement;
-	export let container: HTMLDivElement;
+	let container: HTMLDivElement;
 
 	onMount(() => _components.set(component, { ..._components.get(component), limbo: container }));
 </script>
