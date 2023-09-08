@@ -12,7 +12,7 @@
 	import { onMount } from 'svelte';
 
 	export let component: HTMLElement;
-    export let container: HTMLDivElement;
+	export let container: HTMLDivElement;
 
 	onMount(() => _components.set(component, { ..._components.get(component), limbo: container }));
 </script>
@@ -27,5 +27,5 @@
     since we can't guarantee that all svelte components only have 1 root node.
 -->
 <div style="display: none;" bind:this={container}>
-    <div style="display: contents;" bind:this={component} hidden><slot /></div>
+	<div style="display: contents;" bind:this={component} hidden><slot /></div>
 </div>

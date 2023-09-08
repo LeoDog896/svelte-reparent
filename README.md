@@ -51,7 +51,7 @@ Reparent elements with ease. Svelte non-internal using alternative to [react-rep
 
 If you're trying to teleport a node to a different location in the DOM, you can use
 [svelte-portal](https://npmjs.com/package/svelte-portal) instead. This library
-is better suited for teleporting *inside* the svelte app, rather than outside.
+is better suited for teleporting _inside_ the svelte app, rather than outside.
 
 ## How it works
 
