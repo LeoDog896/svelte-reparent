@@ -3,6 +3,7 @@
 	import { Portal, Limbo, teleport } from '$lib';
 
 	let component: HTMLElement;
+	let hasLimbo = true;
 
 	function send(label: string) {
 		return () => {
@@ -14,9 +15,11 @@
 </script>
 
 <main>
-	<Limbo bind:component>
-		<input placeholder="Enter unkept state" />
-	</Limbo>
+	{#if hasLimbo}
+		<Limbo bind:component>
+			<input placeholder="Enter unkept state" />
+		</Limbo>
+	{/if}
 	<div class="container">
 		<h1>Container A</h1>
 		<Portal key="a" {component} />
@@ -27,6 +30,9 @@
 		<Portal key="b" {component} />
 		<button on:click={send('b')}>Move Component Here</button>
 	</div>
+
+	<p>Have Limbo (original container):</p>
+	<input type="checkbox" bind:checked={hasLimbo} />
 </main>
 
 <style>
