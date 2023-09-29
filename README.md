@@ -4,10 +4,12 @@ Reparent elements with ease. Svelte non-internal using alternative to [react-rep
 
 ## Example
 
+(See it on [Svelte REPL](https://svelte.dev/repl/0ebf76d9cbb347fd8c2639f3c3825eba?version=4.2.1)!)
+
 ```svelte
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { Portal, Limbo, teleport } from '$lib';
+	import { Portal, Limbo, teleport } from 'svelte-reparent';
 
 	let component: HTMLElement;
 

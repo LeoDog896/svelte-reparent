@@ -7,7 +7,7 @@
 
 	const code = `<script lang="ts">
 	import { onMount } from 'svelte';
-	import { Portal, Limbo, teleport } from '$lib';
+	import { Portal, Limbo, teleport } from 'svelte-reparent';
 
 	let component: HTMLElement;
 
