@@ -6,12 +6,10 @@
 	let hasLimbo = true;
 
 	function send(label: string) {
-		return () => {
-			teleport(component, label);
-		};
+		return () => teleport(component, label);
 	}
 
-	onMount((): void => send('a')());
+	onMount(send('a'));
 </script>
 
 <main>

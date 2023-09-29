@@ -7,17 +7,15 @@ Reparent elements with ease. Svelte non-internal using alternative to [react-rep
 ```svelte
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { Portal, Limbo, teleport } from 'svelte-reparent';
+	import { Portal, Limbo, teleport } from '$lib';
 
 	let component: HTMLElement;
 
 	function send(label: string) {
-		return () => {
-			teleport(component, label);
-		};
+		return () => teleport(component, label);
 	}
 
-	onMount((): void => send('a')());
+	onMount(send('a'));
 </script>
 
 <main>
