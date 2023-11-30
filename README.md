@@ -1,5 +1,7 @@
 # [svelte-reparent](https://leodog896.github.io/svelte-reparent)
 
+[![npm](https://img.shields.io/npm/v/svelte-reparent)](https://npmjs.com/svelte-reparent)
+
 Reparent elements with ease. Svelte non-internal using alternative to [react-reparenting](https://github.com/paol-imi/react-reparenting).
 
 ## Example
