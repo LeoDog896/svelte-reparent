@@ -22,7 +22,7 @@
 	let container: HTMLDivElement;
 
 	// Register the component and its limbo
-	onMount(() => _components.set(component, { limbo: container }));
+	onMount(() => $_components.set(component, { limbo: container }));
 </script>
 
 <!-- 
