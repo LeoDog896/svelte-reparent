@@ -36,7 +36,7 @@
 	}
 </script>
 
-<script lang="ts">
+<script lang="ts" strictEvents>
 	import { onDestroy } from 'svelte';
 
 	export let key: Key;

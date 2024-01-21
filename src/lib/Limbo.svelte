@@ -8,7 +8,7 @@
 	a Limbo component without causing unintended side effects to the DOM.
 -->
 
-<script lang="ts">
+<script lang="ts" strictEvents>
 	import { _components } from '$lib/Portal.svelte';
 	import { onMount } from 'svelte';
 
