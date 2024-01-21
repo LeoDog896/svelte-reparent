@@ -12,11 +12,17 @@
 	import { _components } from '$lib/Portal.svelte';
 	import { onMount } from 'svelte';
 
+	/**
+	 * Exposes the component to be moved.
+	 * 
+	 * This should not be changed, but rather used as a reference.
+	 * Otherwise, undefined behavior may occur.
+	 */
 	export let component: HTMLElement;
 	let container: HTMLDivElement;
 
 	// Register the component and its limbo
-	onMount(() => _components.set(component, { ..._components.get(component), limbo: container }));
+	onMount(() => _components.set(component, { limbo: container }));
 </script>
 
 <!-- 
@@ -27,6 +33,8 @@
 
     We also wrap it to guarantee that `component` is a DOM component,
     since we can't guarantee that all svelte components only have 1 root node.
+
+	It is hidden in a parent div to prevent it from being rendered.
 -->
 <div hidden bind:this={container}>
 	<div style="display: contents;" bind:this={component}><slot /></div>
