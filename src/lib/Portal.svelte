@@ -23,6 +23,11 @@
 	// dirty tracker - a Map isn't reactive, so we need to coerce Svelte to re-render
 	let dirty = writable(Symbol());
 
+	/**
+	 * Moves a component to a new container.
+	 * @param component The component to move
+	 * @param key The key of the container to move to
+	 */
 	export async function teleport(component: Container, key: Key) {
 		_components.set(component, { ..._components.get(component), key });
 

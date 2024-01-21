@@ -28,6 +28,6 @@
     We also wrap it to guarantee that `component` is a DOM component,
     since we can't guarantee that all svelte components only have 1 root node.
 -->
-<div style="display: none;" bind:this={container}>
+<div hidden bind:this={container}>
 	<div style="display: contents;" bind:this={component}><slot /></div>
 </div>

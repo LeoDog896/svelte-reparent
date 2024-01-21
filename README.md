@@ -39,15 +39,14 @@ Reparent elements with ease. Svelte non-internal using alternative to [react-rep
 </main>
 ```
 
-## Advantages
+## Features
 
 - No need to worry about keeping state in sync between components.
+- Ownership model prevents bugs where components are destroyed while still in use.
 - No dependencies on internal svelte APIs, unlike React and Vue alternatives.
-- Simple API, with only three exported functions.
+- Simple API with only three exported functions.
 
-## Disadvantages
-
-- Since this library is relatively new, there may be bugs. (Please report them! Every bug report helps!)
+Since this library is relatively new, there may be bugs. (Please report them! Every bug report helps!)
 
 ## Alternatives
 
