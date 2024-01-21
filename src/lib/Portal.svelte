@@ -8,6 +8,7 @@
 	 * Universal map to keep track of what portal a component wants to be in,
 	 * as well as its original limbo owner.
 	 *
+	 * @internal
 	 * DON'T MODIFY EXTERNALLY!
 	 * Doing so is **undefined behavior**.
 	 */
