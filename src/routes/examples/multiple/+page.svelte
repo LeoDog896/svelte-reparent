@@ -3,7 +3,7 @@
 	import { Portal, Limbo, teleport } from '$lib';
 
 	let component: HTMLElement;
-    let component2: HTMLElement;
+	let component2: HTMLElement;
 
 	let hasLimbo = true;
 
@@ -11,9 +11,9 @@
 		return () => teleport(component, label);
 	}
 
-    function send2(label: string) {
-        return () => teleport(component2, label);
-    }
+	function send2(label: string) {
+		return () => teleport(component2, label);
+	}
 
 	onMount(send('a'));
 </script>
@@ -23,23 +23,23 @@
 		<Limbo bind:component>
 			<input placeholder="Enter unkept state" />
 		</Limbo>
-        <Limbo bind:component={component2}>
-            <input placeholder="Enter unkept state 2" />
-        </Limbo>
+		<Limbo bind:component={component2}>
+			<input placeholder="Enter unkept state 2" />
+		</Limbo>
 	{/if}
 	<div class="container">
 		<h1>Container A</h1>
 		<Portal key="a" {component} />
-        <Portal key="a" component={component2} />
+		<Portal key="a" component={component2} />
 		<button on:click={send('a')}>Move Component Here</button>
-        <button on:click={send2('a')}>Move Component 2 Here</button>
+		<button on:click={send2('a')}>Move Component 2 Here</button>
 	</div>
 	<div class="container">
 		<h1>Container B</h1>
 		<Portal key="b" {component} />
-        <Portal key="b" component={component2} />
+		<Portal key="b" component={component2} />
 		<button on:click={send('b')}>Move Component Here</button>
-        <button on:click={send2('b')}>Move Component 2 Here</button>
+		<button on:click={send2('b')}>Move Component 2 Here</button>
 	</div>
 
 	<p>Have Limbo (original container):</p>

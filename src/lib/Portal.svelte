@@ -7,7 +7,7 @@
 	/**
 	 * Universal map to keep track of what portal a component wants to be in,
 	 * as well as its original limbo owner.
-	 * 
+	 *
 	 * While this is a store, Map is a reference type, so we can modify it directly.
 	 * Manual updating ($_components.set) is required to force a re-render.
 	 *
@@ -15,13 +15,15 @@
 	 * DON'T MODIFY EXTERNALLY!
 	 * Doing so is **undefined behavior**.
 	 */
-	export let _components = writable(new Map<
-		Container,
-		{
-			limbo?: HTMLElement;
-			key?: Key;
-		}
-	>());
+	export let _components = writable(
+		new Map<
+			Container,
+			{
+				limbo?: HTMLElement;
+				key?: Key;
+			}
+		>()
+	);
 
 	/**
 	 * Moves a component to a new container.
@@ -43,7 +45,7 @@
 	export let component: Container;
 
 	// component may be nil before mount
-	$: if (component &&  $_components.get(component)?.key == key) {
+	$: if (component && $_components.get(component)?.key == key) {
 		// appendChild forces a move, not a copy - we can safely use this as the DOM
 		// handles ownership of the node for us
 		container.appendChild(component);

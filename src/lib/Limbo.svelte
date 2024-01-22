@@ -14,7 +14,7 @@
 
 	/**
 	 * Exposes the component to be moved.
-	 * 
+	 *
 	 * This should not be changed, but rather used as a reference.
 	 * Otherwise, undefined behavior may occur.
 	 */
